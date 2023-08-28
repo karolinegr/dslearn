@@ -47,4 +47,6 @@ INSERT INTO tb_lessons_done (lesson_id, user_id, offer_id) VALUES (2, 1, 1);
 INSERT INTO tb_notification (user_id, text, moment, read, route) VALUES (1, 'Rever atividade', TIMESTAMP WITH TIME ZONE '2020-07-14T10:00:00Z', false, null);
 INSERT INTO tb_notification (user_id, text, moment, read, route) VALUES (2, 'Atividade concluída: parabéns!', TIMESTAMP WITH TIME ZONE '2020-07-14T10:00:00Z', false, null);
 
+INSERT INTO tb_deliver (offer_id, user_id, lesson_id, uri, moment, status, feedback, correct_Count) VALUES (1, 2, 1, 'www.google.com', TIMESTAMP WITH TIME ZONE '2020-07-14T10:00:00Z', 1, 'muito bem', 10);
+
 -- INSERT INTO () VALUES ();
