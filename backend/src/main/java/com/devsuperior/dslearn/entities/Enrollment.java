@@ -13,6 +13,7 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -99,5 +100,18 @@ public class Enrollment implements Serializable {
 
     public List<Deliver> getDeliveries() {
         return deliveries;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Enrollment that = (Enrollment) o;
+        return available == that.available && onlyUpdate == that.onlyUpdate && Objects.equals(id, that.id) && Objects.equals(enrollMoment, that.enrollMoment) && Objects.equals(refundMoment, that.refundMoment) && Objects.equals(lessonsDone, that.lessonsDone) && Objects.equals(deliveries, that.deliveries);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, enrollMoment, refundMoment, available, onlyUpdate, lessonsDone, deliveries);
     }
 }
