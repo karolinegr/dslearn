@@ -21,9 +21,9 @@ public class NotificationService implements Serializable {
     private AuthService authService;
 
     @Transactional(readOnly = true)
-    public Page<NotificationDTO> notificationsForCurrentUser(Pageable pageable){
+    public Page<NotificationDTO> notificationsForCurrentUser(boolean unreadOnly, Pageable pageable){
         User user = this.authService.authenticated();
-        Page<Notification> page = this.notificationRepository.findByUser(user, pageable);
+        Page<Notification> page = this.notificationRepository.find(user, unreadOnly, pageable);
         return page.map(NotificationDTO::new);
     }
 }
